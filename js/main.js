@@ -33,7 +33,7 @@ function fit(marks) {
   //map.fitBounds(marks.getBounds());
 }
 
-var shortLink = 'http://www3.septa.org/hackathon/TransitView/?route=';
+var shortLink = 'https://www3.septa.org/hackathon/TransitView/?route=';
 //var routeID = 42;
 var test;
 

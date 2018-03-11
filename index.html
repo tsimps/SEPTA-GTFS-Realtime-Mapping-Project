@@ -13,7 +13,7 @@
 <script>
 var route = 42;
 var changeRoute = function() {
-  input = parseInt($( "input[id=number-input1]").val());
+  input = ($( "input[id=number-input1]").val());
   //console.log('INPUT', input);
 
 
@@ -51,7 +51,7 @@ var changeRoute = function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALK0Mz-HjDTfRJ99QvItWdXgJwbLWUuhY&callback=initMap"> </script>
-<script src="js/index.js"></script>
+<script src="js/main.js"></script>
 
 <script>
 
@@ -68,7 +68,7 @@ function myMethod() {
 //var kml = $.ajax('http://www3.septa.org/transitview/kml/'+route+'.kml');
 //'http://www3.septa.org/transitview/kml/'+kmlName+'.kml?dts='+milli);
 //var milliseconds = new Date().getTime();
-//var kmlLyer = omnivore.kml('http://www3.septa.org/transitview/kml/'+route+'.kml?dts='+milliseconds);
+omnivore.kml('http://www3.septa.org/transitview/kml/'+route+'.kml?dts='+milliseconds);
 //omnivore.kml('js/42.kml').addTo(map);
 
 
