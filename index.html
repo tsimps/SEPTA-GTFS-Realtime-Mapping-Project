@@ -11,19 +11,15 @@
 </head>
 
 <script>
-var route = 42;
+var route = 34;
 var changeRoute = function() {
   input = ($( "input[id=number-input1]").val());
-  //console.log('INPUT', input);
-
-
-  //console.log('ROUTEID', routeID);
-
   if (event.keyCode === 13) {
-    //console.log('enter');
     route = input;
     map.removeLayer(markers);
+    clearShape();
     main(route);
+    mapShape(route);
   }
 
   //return same;
@@ -43,7 +39,7 @@ var changeRoute = function() {
 
     <p> <label id="number-label1" for="number-input1">Route Search:</label> </p>
     <p><input id="number-input1" type="text" style = "height: 24px;
-      width: 250px" type="number" placeholder="Enter Route then press 'enter'" value="42" enabled onkeyup="changeRoute()"> </p>
+      width: 250px" type="number" placeholder="Enter Route then press 'enter'" enabled onkeyup="changeRoute()"> </p>
   </div>
 </body>
 
@@ -53,29 +49,23 @@ var changeRoute = function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALK0Mz-HjDTfRJ99QvItWdXgJwbLWUuhY&callback=initMap"> </script>
 <script src="js/main.js"></script>
 
 <script>
 
 // set up map to begin
 main(route);
-// creat an intervall counter (30000 = 30 secs)
-setInterval(myMethod, 15000);
+mapShape(route);
 
 function myMethod() {
   console.log("reloading");
   map.removeLayer(markers);
+  clearShape();
+  mapShape(route);
   main(route);
 }
-//var kml = $.ajax('http://www3.septa.org/transitview/kml/'+route+'.kml');
-//'http://www3.septa.org/transitview/kml/'+kmlName+'.kml?dts='+milli);
-//var milliseconds = new Date().getTime();
-omnivore.kml('http://www3.septa.org/transitview/kml/'+route+'.kml?dts='+milliseconds);
-//omnivore.kml('js/42.kml').addTo(map);
 
-
-//var src = 'http://www3.septa.org/transitview/kml/'+kmlName+'.kml?dts='+milli;
+setInterval(myMethod(), 15000);
 
 </script>
 </html>

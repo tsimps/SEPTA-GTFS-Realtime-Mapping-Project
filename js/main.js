@@ -77,3 +77,13 @@ function main(route) {
   }); // close downloadData
   fit(markers);
 } // close main
+
+var kml;
+function mapShape(route) {
+  kml = omnivore.kml('https://raw.githubusercontent.com/tsimps/SEPTA-GTFS-Realtime-Mapping-Project/master/data/KMLs/'+route+'.kml');
+  kml.addTo(map);
+}
+
+function clearShape() {
+  map.removeLayer(kml);
+}
